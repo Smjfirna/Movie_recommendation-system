@@ -39,12 +39,13 @@ Stakeholder dan Sasaran
   - Proyek ini menggunakan dua dataframe utama yaitu ratings.csv dan movies.csv. Dataframe ratings.csv digunakan untuk menyimpan informasi tentang rating yang diberikan oleh pengguna, sedangkan dataframe movies.csv digunakan untuk menyimpan informasi detail tentang film yang diberi rating. Kedua dataframe ini digabungkan berdasarkan variabel movieId untuk membuat satu dataframe gabungan yang memuat semua kolom dari kedua dataframe tersebut.
   - Info dari *dataframe* untuk melihat gambaran tetang jumlah *non-null values* dari setiap kolom dalam *dataframe*. Hal ini membantu dalam memahami struktur data dan identifikasi awal terhadap kolom-kolom yang memiliki *missing values*. data yang dibutuhkan dalam 2 dataframe, maka dilakukan proses merge dengan pandas pada kedua data frame. variabel ini akan memuat semua colum dari movie.csv dan rating.csv berdasarkan movieId.
   Gambar 1.Info Dataframe
-  ![info dataframe](https://github.com/Smjfirna/test/assets/142133715/32911a46-e5a5-43f0-8e7d-78a42b5bf5a5)
+  ![image](https://github.com/Smjfirna/Movie_recommendation-system/assets/142133715/b51dd4dc-f985-4b8f-a718-1561eb1b4619)
+
   - Melihat jumlah *missing value* pada *dataframe* untuk mengetahui jumlah nilai yang hilang pada setiap kolom, sehingga dapat diputuskan langkah selanjutnya untuk menghapus kolom/row sebelum dianalisis lebih lanjut. Tidak ditemukan *missing value* pada data.
   - Melihat jumlah data *duplicated* pada *dataframe* untuk mengetahui data yang sama lebih dari 1, hal ini dilakukan untuk memastikan integritas data. Duplikasi yang ditemukan akan dihapus agar tidak mempengaruhi analisis dan model prediksi yang akan dibuat. tidak didapatkan data duplicate.
 3. *Exploratory data analysis*(EDA).Visualisasi ini membantu kita memahami bagaimana pengguna menilai film berdasarkan genre. Ini memberikan wawasan yang berguna untuk membuat sistem rekomendasi yang lebih efektif dengan mempertimbangkan kecenderungan rating pada setiap genre.
   Gambar 2.Box PLot Distribusi rating
-  ![Distribusi rating boxplot](https://github.com/Smjfirna/test/assets/142133715/a0de612d-e4fe-48ae-bf13-e5ee52a15c94)
+  ![download (6)](https://github.com/Smjfirna/Movie_recommendation-system/assets/142133715/3908d570-d4f9-4748-97d6-43b18029ee92)
   - Rating Median Tertinggi:Film-Noir dan Documentary menunjukkan median rating yang relatif tinggi, mendekati atau sekitar 4. Drama dan War juga memiliki median rating yang cukup tinggi.
   - Rating Median Terendah: Horror memiliki median rating yang lebih rendah dibandingkan genre lainnya, mendekati atau di bawah 3.Genre seperti Children dan Comedy memiliki median rating yang sedikit lebih rendah dibandingkan genre lain, namun masih berada di sekitar 3.
   - Distribusi Rating: Horror menunjukkan rentang distribusi yang luas, dari rating 1 hingga 5, menunjukkan variasi besar dalam penilaian pengguna.Genre seperti Comedy dan Children juga menunjukkan rentang distribusi yang cukup lebar, meskipun tidak se-luas Horror.
@@ -107,6 +108,34 @@ Membagi data menjadi data pelatihan dan data uji sangat penting untuk mengevalua
   - Training model. model dilatih menggunakan dataset trainset untuk kemudian dievaluasi untuk melihat seberapa efektif model memprediski menggunakan data testset.
 3. Berdasarkan hasil pelatihan dan evaluasi, model terbaik untuk menangani masalah rekomendasi film pada dataset ini adalah Singular Value Decomposition (SVD). SVD telah menunjukkan hasil akurasi yang lebih baik dari dua algoritma lainnya dan evaluasi lainnya yang juga unggul. Model ini memberikan rekomendasi yang lebih akurat dengan mempertimbangkan pola laten dalam data rating pengguna.
 4. Top-N Reccomendation. disajikan  dengan memilih userId secara acak kemudian model akan mengidentifikasi film yang sudah di tonton dan ratingnya yang kemudian menggunakan model SVD yang sudah dilatih sebelumnya untuk memprediksi rating film yang belum ditonton dan memberikan 10 rekomendasi film dengan prediksi rating tertinggi untuk direkomendasikan kepada pengguna. film ditampilkan dengan judul dan genre.
+Showing recommendations for user: 12
+===========================
+Movies with high ratings from user
+--------------------------------
+| Title                        | Genre                       |
+|------------------------------|-----------------------------|
+| Emma (1996)                  | Comedy|Drama|Romance        |
+| She's All That (1999)        | Comedy|Romance              |
+| 10 Things I Hate About You (1999) | Comedy|Romance          |
+| Never Been Kissed (1999)     | Comedy|Romance              |
+| Love Actually (2003)         | Comedy|Drama|Romance        |
+
+--------------------------------
+Top 10 movie recommendations
+--------------------------------
+| Title                                     | Genre                              |
+|-------------------------------------------|------------------------------------|
+| Braveheart (1995)                         | Action|Drama|War                   |
+| Star Wars: Episode IV - A New Hope (1977) | Action|Adventure|Sci-Fi            |
+| Pulp Fiction (1994)                       | Comedy|Crime|Drama|Thriller        |
+| Forrest Gump (1994)                       | Comedy|Drama|Romance|War           |
+| Schindler's List (1993)                   | Drama|War                          |
+| Silence of the Lambs, The (1991)          | Crime|Horror|Thriller              |
+| Fargo (1996)                              | Comedy|Crime|Drama|Thriller        |
+| Reservoir Dogs (1992)                     | Crime|Mystery|Thriller             |
+| Star Wars: Episode V - The Empire Strikes Back (1980) | Action|Adventure|Sci-Fi |
+| Apocalypse Now (1979)                     | Action|Drama|War                   |
+
 
 ## Evaluation
 1. Tabel Evaluasi Model
@@ -125,7 +154,8 @@ Berdasarkan evaluasi di atas, model SVD menunjukkan kinerja yang lebih baik dala
 4. Test rekomendasi film berdasarkan satu user menggunakan Algoritma SVD
 Dalam implementasi tersebut diambil 10 film dengan prediksi rating tertinggi yang belum ditonton oleh user. selanjutnya juga diambil 5 film dengan rating tertinggi yang diberikan yang pernah ditonton oleh user untuk memberikan gambaran lebih lanjut tentang preferensinya. Rekomendasi ini dapat membantu meningkatkan pengalaman pengguna dalam menemukan film-film yang sesuai dengan preferensi mereka berdasarkan analisis dari model kolaboratif SVD yang telah dievaluasi sebelumnya.
 Gambar 3.Hasil Prediksi dengan satu user
-![hasil rekomendasi](https://github.com/Smjfirna/test/assets/142133715/339c4c26-d21c-4b6b-b901-4375d10337dd)
+![image](https://github.com/Smjfirna/Movie_recommendation-system/assets/142133715/87127481-1522-4af2-aaff-eaddd00a07ab)
+
 5. Kesimpulan
   - Keberhasilan Proyek: Meskipun model KNNBasic dan NMF memberikan hasil yang dapat diterima dengan RMSE di bawah 1.0, model SVD menonjol dengan RMSE 0.856, mencerminkan prediksi yang lebih akurat.
   - Pencapaian Goals: Goals proyek untuk membangun model kolaboratif yang mampu memprediksi preferensi pengguna tercapai dengan baik, terutama dengan pilihan model SVD.
