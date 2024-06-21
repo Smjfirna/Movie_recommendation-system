@@ -140,11 +140,13 @@ Top 10 movie recommendations
 ## Evaluation
 1. Tabel Evaluasi Model
 Tabel 1. Hasil Evaluasi
+
 | Model	   | RMSE  |
 |----------|-------|
 |SVD	     | 0.856 |
 |KNNBasic	 | 0.924 |
 |NMF	     | 0.891 |
+
 2. Interpretasi Hasil Metrik
   - RMSE (Root Mean Squared Error): Merupakan ukuran seberapa baik model kolaboratif (collaborative filtering) bekerja dalam memprediksi rating atau preferensi pengguna untuk item tertentu. Semakin rendah RMSE, semakin baik performa model.
   - Model SVD memiliki RMSE terendah yaitu 0.856, menunjukkan performa prediksi yang lebih baik dibandingkan dengan KNNBasic (RMSE = 0.924) dan NMF (RMSE = 0.891).
