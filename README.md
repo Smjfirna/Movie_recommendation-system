@@ -107,6 +107,7 @@ Membagi data menjadi data pelatihan dan data uji sangat penting untuk mengevalua
   - Training model. model dilatih menggunakan dataset trainset untuk kemudian dievaluasi untuk melihat seberapa efektif model memprediski menggunakan data testset.
 3. Berdasarkan hasil pelatihan dan evaluasi, model terbaik untuk menangani masalah rekomendasi film pada dataset ini adalah Singular Value Decomposition (SVD). SVD telah menunjukkan hasil akurasi yang lebih baik dari dua algoritma lainnya dan evaluasi lainnya yang juga unggul. Model ini memberikan rekomendasi yang lebih akurat dengan mempertimbangkan pola laten dalam data rating pengguna.
 4. Top-N Reccomendation. disajikan  dengan memilih userId secara acak kemudian model akan mengidentifikasi film yang sudah di tonton dan ratingnya yang kemudian menggunakan model SVD yang sudah dilatih sebelumnya untuk memprediksi rating film yang belum ditonton dan memberikan 10 rekomendasi film dengan prediksi rating tertinggi untuk direkomendasikan kepada pengguna. film ditampilkan dengan judul dan genre.
+
 Tabel 1. Contoh Tabel Top-N dari User 12
 Showing recommendations for user: 12
 ===========================
@@ -159,7 +160,7 @@ Dalam implementasi tersebut diambil 10 film dengan prediksi rating tertinggi yan
   - Pencapaian Goals: Goals proyek untuk membangun model kolaboratif yang mampu memprediksi preferensi pengguna tercapai dengan baik, terutama dengan pilihan model SVD.
   - Penyelesaian Problem: Model SVD memberikan solusi yang cukup efektif dalam menyelesaikan masalah prediksi preferensi atau rating pengguna pada item tertentu. Evaluasi dengan menggunakan RMSE memberikan gambaran yang jelas tentang performa model dalam konteks dataset yang digunakan.
 
-# Referensi
+# Reference
 [1] Putri, H. D., & Faisal, M. (2023). Analyzing the effectiveness of collaborative filtering and content-based filtering methods in anime recommendation systems. Jurnal Komtika (Komputasi dan Informatika), 7(2), 124-133.
 
 [2] Al-Ghamdi, M., Elazhary, H., & Mojahed, A. (2021). Evaluation of collaborative filtering for recommender systems. International Journal of Advanced Computer Science and Applications, 12(3).
